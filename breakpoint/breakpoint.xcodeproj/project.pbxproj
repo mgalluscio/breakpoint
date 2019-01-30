@@ -15,6 +15,7 @@
 		A45A57F6220149F300CF7373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A45A57F5220149F300CF7373 /* Assets.xcassets */; };
 		A45A57F9220149F300CF7373 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A45A57F7220149F300CF7373 /* LaunchScreen.storyboard */; };
 		A45A580622014C5500CF7373 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A45A580522014C5500CF7373 /* GoogleService-Info.plist */; };
+		A45A580822014F3D00CF7373 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A580722014F3D00CF7373 /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		A45A57F8220149F300CF7373 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A45A57FA220149F300CF7373 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A45A580522014C5500CF7373 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A45A580722014F3D00CF7373 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		CDBDB1A55CBC398B8D0335B5 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		CEFF5C096B0C5FDCC1A17E4F /* Pods-breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 		A45A580422014AB700CF7373 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A45A580722014F3D00CF7373 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				A45A57F1220149F100CF7373 /* SecondViewController.swift in Sources */,
 				A45A57ED220149F100CF7373 /* AppDelegate.swift in Sources */,
 				A45A57EF220149F100CF7373 /* FirstViewController.swift in Sources */,
+				A45A580822014F3D00CF7373 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
