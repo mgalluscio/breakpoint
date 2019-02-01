@@ -13,7 +13,7 @@ class AuthService {
     // singleton
     static let instance = AuthService()
     
-    // registers user, completion handler to know when done. Completion handler has status to tell when done and error if necessary (nil, may or may not have an error)
+    // registers user, completion handler to know when done. Completion handler has status to tell when done and error if necessary (nil, may or may not have an error). Finally, adds user to db with createDBUser from DataService
     func registerUser(withEmail email: String, andPassword password: String, userCreationComplete: @escaping (_ status: Bool,_ error: Error?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             guard let user = user?.user else {
