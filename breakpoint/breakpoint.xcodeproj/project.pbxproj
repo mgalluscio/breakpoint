@@ -20,6 +20,7 @@
 		A45A580C220211E200CF7373 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A580B220211E200CF7373 /* LoginVC.swift */; };
 		A45A580E2202123600CF7373 /* InsetTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A580D2202123600CF7373 /* InsetTextField.swift */; };
 		A45A5810220219D500CF7373 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A580F220219D500CF7373 /* ShadowView.swift */; };
+		A4BA58F82203EA5E00B70770 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BA58F72203EA5E00B70770 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		A45A580B220211E200CF7373 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		A45A580D2202123600CF7373 /* InsetTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetTextField.swift; sourceTree = "<group>"; };
 		A45A580F220219D500CF7373 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		A4BA58F72203EA5E00B70770 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CDBDB1A55CBC398B8D0335B5 /* Pods-breakpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		CEFF5C096B0C5FDCC1A17E4F /* Pods-breakpoint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-breakpoint.release.xcconfig"; path = "Pods/Target Support Files/Pods-breakpoint/Pods-breakpoint.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A45A580722014F3D00CF7373 /* DataService.swift */,
+				A4BA58F72203EA5E00B70770 /* AuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				A45A580A220211B500CF7373 /* AuthVC.swift in Sources */,
 				A45A57F1220149F100CF7373 /* SecondViewController.swift in Sources */,
 				A45A580C220211E200CF7373 /* LoginVC.swift in Sources */,
+				A4BA58F82203EA5E00B70770 /* AuthService.swift in Sources */,
 				A45A57ED220149F100CF7373 /* AppDelegate.swift in Sources */,
 				A45A5810220219D500CF7373 /* ShadowView.swift in Sources */,
 				A45A57EF220149F100CF7373 /* FirstViewController.swift in Sources */,
