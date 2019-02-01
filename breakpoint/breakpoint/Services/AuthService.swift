@@ -30,7 +30,7 @@ class AuthService {
     // logs in user with email and password. Completion handler to tell when login is complete with staus and error.
     func loginUser(withEmail email: String, andPassword password: String, loginComplete: @escaping (_ status: Bool,_ error: Error?) -> ()) {
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-            guard let user = user?.user else {
+            guard (user?.user) != nil else {
                 loginComplete(false, error)
                 return
             }
