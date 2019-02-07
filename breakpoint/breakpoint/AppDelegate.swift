@@ -18,6 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        // if user is logged out authVC is presented on top of whatever view controller the user is currently viewing (window.rootviewcontroller)
+        if Auth.auth().currentUser == nil {
+            // access main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            // new instance of authVC
+            let authVC = storyboard.instantiateViewController(withIdentifier: "AuthVC")
+            // make window first and foremost, most important
+            window?.makeKeyAndVisible()
+            // present authVC on top of root view controller (current view)
+            window?.rootViewController?.present(authVC, animated: true, completion: nil)
+        }
         return true
     }
 
