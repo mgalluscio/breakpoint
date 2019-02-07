@@ -35,6 +35,7 @@ class AuthService {
                 return
             }
             loginComplete(true, nil)
+            //print("LOGIN SUCESSFUL")
         }
     }
 }
