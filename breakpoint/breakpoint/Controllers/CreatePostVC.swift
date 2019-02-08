@@ -19,6 +19,9 @@ class CreatePostVC: UIViewController {
         super.viewDidLoad()
         textView.delegate = self
         sendBtn.bindToKeyboard()
+        // could use bindToKeyboard() on these objects too
+//        profileImage.bindToKeyboard()
+//        emailLbl.bindToKeyboard()
     }
     
     // uploads post when send button is pressed

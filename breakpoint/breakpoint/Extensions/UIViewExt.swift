@@ -8,7 +8,7 @@
 
 import UIKit
 
-// binds any object that inherits from UIView class to keyboard
+// binds any object that inherits from UIView class (really UIControl, but could be imageView, button, textView, etc.) to keyboard
 extension UIView {
     // utilizes notification center observer for whenever the keyboardWillChangeFrame is called. For performs action when that notification is called.
     func bindToKeyboard() {
