@@ -237,7 +237,7 @@
                                     <constraint firstItem="PgY-xX-tnF" firstAttribute="leading" secondItem="Mn5-Nj-fl9" secondAttribute="leading" constant="20" id="akT-EV-1fa"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-mP-ZaX">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-mP-ZaX">
                                 <rect key="frame" x="20" y="90" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="SDN-d8-ek1"/>
@@ -484,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eo-nX-QPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1890" y="0.0"/>
+            <point key="canvasLocation" x="-1414" y="0.0"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="XIa-gR-Jo2">
@@ -569,7 +569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZW0-IV-SU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1010.4" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-698" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

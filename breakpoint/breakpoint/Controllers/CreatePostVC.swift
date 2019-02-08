@@ -18,6 +18,7 @@ class CreatePostVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
+        sendBtn.bindToKeyboard()
     }
     
     // uploads post when send button is pressed
