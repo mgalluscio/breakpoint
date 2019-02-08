@@ -56,4 +56,14 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    // uploads posts to db, takes message, user ID and group ID. If group ID exists, send to group ref, else post to feed.
+    func uploadPost(withMessage message: String, forUID uid: String, withGroupKey groupKey: String?, sendComplete: @escaping (_ status: Bool) -> ()) {
+        if groupKey != nil {
+            // send to groups ref
+        } else {
+            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderId": uid])
+            sendComplete(true)
+        }
+    }
+    
 }
