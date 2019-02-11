@@ -88,4 +88,19 @@ class DataService {
         }
     }
     
+    // function passes userid and returns email as string for that user
+    func getUsername(forUID uid: String, handler: @escaping (_ username: String) -> ()) {
+        // only want to observe once (singleEvent)
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            // get all objects as array of type DataSnapshot. Else, just return
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            // loop over userSnapshot array. If user.key equals uid passsed return email as string.
+            for user in userSnapshot {
+                if user.key == uid {
+                    handler(user.childSnapshot(forPath: "email").value as! String)
+                }
+            }
+        }
+    }
+    
 }

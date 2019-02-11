@@ -23,7 +23,7 @@ class FeedVC: UIViewController {
         super.viewDidAppear(animated)
         // get all messages and copy them to local array then reload tableView so changes will appear
         DataService.instance.getAllFeedMessages { (returnedMessagesArray) in
-            self.messageArray = returnedMessagesArray
+            self.messageArray = returnedMessagesArray.reversed()
             self.tableView.reloadData()
         }
     }
@@ -31,9 +31,11 @@ class FeedVC: UIViewController {
 
 // extension to conform to proper protocols
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
+    // Just one section
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    // Number of rows = messageArray.count
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messageArray.count
     }
@@ -44,7 +46,9 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         // grabs message in array based on row of tableView
         let messages = messageArray[indexPath.row]
         // configure cell using function in FeedCell
-        cell.configureCell(profileImage: image!, email: messages.senderId, content: messages.content)
+        DataService.instance.getUsername(forUID: messages.senderId) { (returnedUsername) in
+            cell.configureCell(profileImage: image!, email: returnedUsername, content: messages.content)
+        }
         return cell
     }
 }
