@@ -24,6 +24,13 @@ class CreatePostVC: UIViewController {
 //        emailLbl.bindToKeyboard()
     }
     
+    // called everytime view appears
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // show users email
+        self.emailLbl.text = Auth.auth().currentUser?.email
+    }
+    
     // uploads post when send button is pressed
     @IBAction func sendBtnWasPressed(_ sender: Any) {
         if textView.text != nil && textView.text != "Say something here..." {

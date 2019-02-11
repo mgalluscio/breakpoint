@@ -18,6 +18,12 @@ class MeVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // show users email
+        self.emailLbl.text = Auth.auth().currentUser?.email
+    }
+    
     // called when signout button is pressed
     @IBAction func signOutBtnWasPressed(_ sender: Any) {
         // create nice popup
