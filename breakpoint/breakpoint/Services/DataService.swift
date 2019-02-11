@@ -66,4 +66,26 @@ class DataService {
         }
     }
     
+    // gets all messages from feed table in db
+    // escaping closure allows us to pass the returned data outside the closure
+    func getAllFeedMessages(handler: @escaping (_ messages: [Message]) -> ()) {
+        // array to hold all messages (of type Message)
+        var messageArray = [Message]()
+        // OBSERVES all messages from feed
+        REF_FEED.observeSingleEvent(of: .value) { (feedMessageSnapshot) in
+            // safely create array of ALL of objects as type DataSnapshot. Otherwise, return.
+            guard let feedMessageSnapshot = feedMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            // iterate over feedMessageSnapshot and append  initalized message object to messageArray
+            for message in feedMessageSnapshot {
+                // childsnapshots are used to pull out data from DataSnapshot
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                let message = Message(content: content, senderId: senderId)
+                messageArray.append(message)
+            }
+            // return messageArray :)
+            handler(messageArray)
+        }
+    }
+    
 }
