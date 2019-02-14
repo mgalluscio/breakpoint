@@ -16,11 +16,32 @@ class CreateGroupsVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var groupMemberLbl: UILabel!
     
+    var emailArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        emailTextField.delegate = self
+        // calls textFieldDidChange based on when letters added, removed, etc. This is how we will monitor whether a user is typing in the textfield
+        emailTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
     }
+    
+    // function called by addedTarget in viewDidLoad
+    @objc func textFieldDidChange() {
+        // if emailTextField is blank, empty array and reload table view
+        if emailTextField.text == "" {
+            emailArray = []
+            tableView.reloadData()
+        } else {
+            // otherwise, get email by textField text and set self.email array equal to returned data. Finally, reload tableView
+            DataService.instance.getEmail(forSearchQuery: emailTextField.text!) { (emailArray) in
+                self.emailArray = emailArray
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -32,13 +53,13 @@ class CreateGroupsVC: UIViewController {
 // conform to UiTableView protocols
 extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return emailArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
         let profileImage = UIImage(named: "defaultProfileImage")
-        cell.configureCell(profileImage: profileImage!, email: "marty@b2f.com", isSelected: true)
+        cell.configureCell(profileImage: profileImage!, email: emailArray[indexPath.row], isSelected: true)
         return cell
     }
     
@@ -47,3 +68,6 @@ extension CreateGroupsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+// conform to UITextField protocols so we can monitor when user starts typing
+extension CreateGroupsVC: UITextFieldDelegate { }

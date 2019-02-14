@@ -103,4 +103,25 @@ class DataService {
         }
     }
     
+    // takes query and returns array of emails contain that query through escaping closure
+    func getEmail(forSearchQuery query: String, handler: @escaping (_ emailArray: [String]) -> ()) {
+        // array we are going to return
+        var emailArray = [String]()
+        // observe all values in REF_USERS
+        REF_USERS.observe(.value) { (UserSnapshot) in
+            // create array called userSnapshot with all children objects (contains emails)
+            guard let userSnapshot = UserSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            // loop over userSnapshot array, save email as constant
+            for user in userSnapshot {
+                let email = user.childSnapshot(forPath: "email").value as! String
+                // if email contains query AND email isn't user's append to emailArray
+                if email.contains(query) == true && email != Auth.auth().currentUser?.email {
+                    emailArray.append(email)
+                }
+            }
+            // return list through closure
+            handler(emailArray)
+        }
+    }
+    
 }
