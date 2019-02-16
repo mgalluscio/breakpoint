@@ -13,10 +13,23 @@ class UserCell: UITableViewCell {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var checkImage: UIImageView!
     
+    var showing = false
+    
+    // perform some logic when tableViewCell is set to selected
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        // when selected
+        if selected {
+            // if showing is equal to false, set showing to true and show checkImage
+            if showing == false {
+                checkImage.isHidden = false
+                showing = true
+            } else {
+                // otherwise, hide the image and set showing to false
+                checkImage.isHidden = true
+                showing = false
+            }
+        }
     }
     
     // called to configure cell
