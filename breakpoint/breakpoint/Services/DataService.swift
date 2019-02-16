@@ -124,8 +124,11 @@ class DataService {
         }
     }
     
-    func getIds(forUsername username: String, handler: @escaping (_ uidArray: [String]) -> ()) {
+    // function gets IDs for passed username. Returns array of ids through escaping closure.
+    func getIds(forUsername username: [String], handler: @escaping (_ uidArray: [String]) -> ()) {
+        // array to be returned
         var idArray = [String]()
+        // observes all users once, create array with data, loop over it and append ids to array
         REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
@@ -134,8 +137,16 @@ class DataService {
                     idArray.append(user.key)
                 }
             }
+            // return list through closure
             handler(idArray)
         }
     }
+    
+    // function takes title, description and array of userIds and creates group in db
+    func createGroup(withTitle title: String, andDescription description: String, forUserIds ids: [String], handler: @escaping (_ groupCreated: Bool) -> ()) {
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": ids])
+        handler(true)
+    }
+    
     
 }

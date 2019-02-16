@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupsVC: UIViewController {
     @IBOutlet weak var titleTextField: InsetTextField!
@@ -51,7 +52,29 @@ class CreateGroupsVC: UIViewController {
     @IBAction func closeBtnWasPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
+    // called when done button is pressed
     @IBAction func doneBtnWasPressed(_ sender: Any) {
+        // must have title and description
+        if titleTextField.text != "" && descriptionTextField.text != "" {
+            // get uids for users by email
+            DataService.instance.getIds(forUsername: chosenUserArray) { (idsArray) in
+                // copy array so we can add to it
+                var userIds = idsArray
+                // gotta include yourself in group ;)
+                userIds.append((Auth.auth().currentUser?.uid)!)
+                // create group!
+                DataService.instance.createGroup(withTitle: self.titleTextField.text!, andDescription: self.descriptionTextField.text!, forUserIds: userIds, handler: { (groupCreated) in
+                    // dismiss if successful. otherwise, print error.
+                    if groupCreated {
+                        print("new group created")
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        print("Group could not be created!")
+                    }
+                })
+            }
+        }
     }
     
 }
