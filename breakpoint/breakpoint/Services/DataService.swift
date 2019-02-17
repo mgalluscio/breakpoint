@@ -148,5 +148,31 @@ class DataService {
         handler(true)
     }
     
+    // function returns groups from db through escaping closure
+    func getAllGroups(handler: @escaping (_ groupsArray: [Group]) -> ()) {
+        // create array of type Group to hold returned groups
+        var groupsArray = [Group]()
+        // observe single event (only called once)
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            // create array to hold returned data
+            guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            // iterate over array to pull out data
+            for group in groupSnapshot {
+                // array to hold memeber ids
+                let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                // we only want groups that we're a part of
+                if memberArray.contains((Auth.auth().currentUser?.uid)!) {
+                    // grab title, description and create data structure
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    let group = Group(title: title, description: description, key: group.key, members: memberArray, memberCount: memberArray.count)
+                    // append created group to groupsArray
+                    groupsArray.append(group)
+                }
+            }
+            // return groupsArray
+            handler(groupsArray)
+        }
+    }
     
 }
