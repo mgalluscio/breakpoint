@@ -103,7 +103,7 @@ class DataService {
         }
     }
     
-    // takes query and returns array of emails contain that query through escaping closure
+    // takes query and returns array of emails contain that query (typed email) through escaping closure
     func getEmail(forSearchQuery query: String, handler: @escaping (_ emailArray: [String]) -> ()) {
         // array we are going to return
         var emailArray = [String]()
@@ -139,6 +139,27 @@ class DataService {
             }
             // return list through closure
             handler(idArray)
+        }
+    }
+    
+    // function takes a group as a parameter and returns a list through a escaping closure of each members email
+    func getEmailsFor(group: Group, handler: @escaping (_ emailArray: [String]) -> ()) {
+        // array to hold member emails
+        var emailArray = [String]()
+        // observe once
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            // create userSnapshot list of type DataSnapshot
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            // iterate through list
+            for user in userSnapshot {
+                // if group members list contains user.key in snapshot append to emailArray
+                if group.members.contains(user.key) {
+                    let email = user.childSnapshot(forPath: "email").value as! String
+                    emailArray.append(email)
+                }
+            }
+            // return list of emails
+            handler(emailArray)
         }
     }
     

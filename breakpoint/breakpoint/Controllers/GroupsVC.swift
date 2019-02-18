@@ -47,5 +47,13 @@ extension GroupsVC: UITableViewDelegate, UITableViewDataSource {
         cell.configureCell(title: group.groupTitle, description: group.groupDescription, memberCount: group.memberCount)
         return cell
     }
+    
+    // function allows us to present proper GroupFeedVC based on chosen indexPath
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupFeedVC") as? GroupFeedVC else { return }
+        let group = groupsArray[indexPath.row]
+        groupFeedVC.initData(forGroup: group)
+        present(groupFeedVC, animated: true, completion: nil)
+    }
 }
 

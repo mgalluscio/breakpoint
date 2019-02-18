@@ -33,7 +33,7 @@ class Group {
         return _memberCount
     }
     
-    var memebers: [String] {
+    var members: [String] {
         return _members
     }
     
