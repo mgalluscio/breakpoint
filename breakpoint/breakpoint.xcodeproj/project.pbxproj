@@ -10,6 +10,7 @@
 		051CF0A647DC16F6ED374021 /* Pods_breakpoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 823112C0CA3258953EF1F380 /* Pods_breakpoint.framework */; };
 		A416B916221A4FA200187D82 /* GroupFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416B915221A4FA200187D82 /* GroupFeedCell.swift */; };
 		A416B918221A501B00187D82 /* GroupFeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416B917221A501B00187D82 /* GroupFeedVC.swift */; };
+		A416B91A221CA29D00187D82 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = A416B919221CA29C00187D82 /* UIViewControllerExt.swift */; };
 		A43BC07722150BCE00434DD1 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A43BC07622150BCE00434DD1 /* UserCell.swift */; };
 		A45A57ED220149F100CF7373 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A57EC220149F100CF7373 /* AppDelegate.swift */; };
 		A45A57EF220149F100CF7373 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45A57EE220149F100CF7373 /* FeedVC.swift */; };
@@ -38,6 +39,7 @@
 		823112C0CA3258953EF1F380 /* Pods_breakpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_breakpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A416B915221A4FA200187D82 /* GroupFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedCell.swift; sourceTree = "<group>"; };
 		A416B917221A501B00187D82 /* GroupFeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFeedVC.swift; sourceTree = "<group>"; };
+		A416B919221CA29C00187D82 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		A43BC07622150BCE00434DD1 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		A45A57E9220149F100CF7373 /* breakpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = breakpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A45A57EC220149F100CF7373 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				A47BA93D220E337E00CD0D12 /* UIViewExt.swift */,
+				A416B919221CA29C00187D82 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				A47BA93A220D1AA800CD0D12 /* MeVC.swift in Sources */,
 				A4F0A7E72219DD62008BEF7A /* GroupCell.swift in Sources */,
 				A45A580A220211B500CF7373 /* AuthVC.swift in Sources */,
+				A416B91A221CA29D00187D82 /* UIViewControllerExt.swift in Sources */,
 				A45A57F1220149F100CF7373 /* GroupsVC.swift in Sources */,
 				A416B918221A501B00187D82 /* GroupFeedVC.swift in Sources */,
 				A416B916221A4FA200187D82 /* GroupFeedCell.swift in Sources */,

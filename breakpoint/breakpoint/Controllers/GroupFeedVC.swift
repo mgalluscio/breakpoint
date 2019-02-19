@@ -55,7 +55,7 @@ class GroupFeedVC: UIViewController {
         tableView.dataSource = self
     }
     @IBAction func backButtonWasPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismissDetail()
     }
     
     // called when send button is pressed
