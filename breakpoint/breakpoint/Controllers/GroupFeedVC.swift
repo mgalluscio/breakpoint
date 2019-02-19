@@ -39,6 +39,10 @@ class GroupFeedVC: UIViewController {
                 // copy returned messages to array local to class and reload tableView
                 self.groupMessages = returnedGroupMessages
                 self.tableView.reloadData()
+                // if count > 0 scroll to bottom to see new message
+                if self.groupMessages.count > 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: self.groupMessages.count - 1, section: 0), at: .none, animated: true)
+                }
             })
         }
     }
